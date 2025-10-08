@@ -5,6 +5,7 @@ import CatModel
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 //import com.example.lab_week_06.model.CatModel
@@ -56,6 +57,9 @@ class MainActivity : AppCompatActivity() {
                 )
             )
         )
+        val itemTouchHelper = ItemTouchHelper(catAdapter.swipeToDeleteCallback)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
+
     }
 
     private fun showSelectionDialog(cat: CatModel) {
